@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { Heading } from '@chakra-ui/react'
 import { getDragRaceQueens } from '../apiClient'
 
 export default function AllQueens() {
@@ -23,8 +23,8 @@ export default function AllQueens() {
           return (
             <div key={queen.id}>
               <img src={queen.image_url} width="200vw" height="auto"></img>
-              <h1>{queen.name}</h1>
-              <h3>{queen.quote}</h3>
+              <Heading>{queen.name}</Heading>
+              <Heading>{queen.quote}</Heading>
             </div>
           )
       })}

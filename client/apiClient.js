@@ -11,3 +11,7 @@ export function getHeader() {
 export function getDragRaceQueens() {
   return request.get(`${serverURL}/queens`).then((response) => response.body)
 }
+
+export function getDragRaceSeasons() {
+  return request.get(`${serverURL}/seasons`).then((response) => response.body)
+}

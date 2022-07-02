@@ -1,11 +1,26 @@
 import React, { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom'
 import { getDragRaceSeasons } from '../apiClient'
-import { Heading } from '@chakra-ui/react'
+import { Grid, GridItem, Button, ButtonGroup } from '@chakra-ui/react'
 
 export default function Seasons() {
   const [seasons, setSeasons] = useState([])
-  console.log(seasons)
+  const [selected, setSelected] = useState([])
+  console.log(selected)
+  seasons.sort((a, b) => a.id - b.id)
+  // checked.queen.sort((a, b) => a.id - b.id)
+
+  useEffect(() => {
+    getDragRaceSeasons()
+      .then((selectedData) => {
+        selectedData === setSelected(selectedData)
+          ? setSelected(selectedData)
+          : null
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+  }, [])
 
   useEffect(() => {
     getDragRaceSeasons()
@@ -18,17 +33,48 @@ export default function Seasons() {
       })
   }, [])
 
+  // const showQueens = (seasons) => {
+  //   selected === setSelected(seasons.queen) ? setSelected(seasons.queen) : null
+  // }
+
   return (
     <>
-      {seasons.map((season) => {
-        return (
-          <div key={season.id}>
-            {/* {/* <Heading>queen.season</Heading>
-            <img src={season.image_url} width="200vw" height="auto"></img> */}
-            <Heading>{season.name}</Heading>
-          </div>
-        )
-      })}
+      <Grid templateColumns="20% auto">
+        <GridItem pl="1">
+          {seasons.map((season) => {
+            return (
+              <ul className="nobull" key={season.id}>
+                <li>
+                  <input
+                    type="radio"
+                    name="season"
+                    value={season.seasonNumber}
+                    onChange={() => setSelected(season.queens)}
+                  />
+                  <h2 style={{ display: 'inline' }}>
+                    Season {season.seasonNumber}
+                  </h2>
+                </li>
+              </ul>
+            )
+          })}
+        </GridItem>
+        <GridItem pl="2">
+          {selected.map((check) => {
+            return (
+              <ul className="nobull" key={check.id}>
+                <li>
+                  <input type="checkbox" name="queen" />
+                  <h2 style={{ display: 'inline' }}> {check.name} </h2>
+                  <Button bg="#FF5ED5" color="white" size="xs">
+                    Add
+                  </Button>
+                </li>
+              </ul>
+            )
+          })}
+        </GridItem>
+      </Grid>
     </>
   )
 }

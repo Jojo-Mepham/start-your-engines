@@ -1,3 +1,24 @@
 .heading {
   font-family: "Sniglet"
 }
+.main, .title {
+  display: flex;
+  flex-direction: column;
+}
+.main div {
+  margin: 0px 10px 0px 10px;
+}
+.nobull {
+  list-style-type: none;
+ }
+
+ .headerfont {
+  font-family: 'Nerko One';
+  font-size: 5vw;
+  color: #e5007c;
+  text-shadow: 18px -20px 0px #59c9c5;
+}
+
+
+
+ 

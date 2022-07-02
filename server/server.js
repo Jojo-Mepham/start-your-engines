@@ -14,9 +14,9 @@ server.use('/api/v1/header', header)
 server.use('/api/v1/queens', dragRace)
 server.use('/api/v1/seasons', dragRaceSeasons)
 
-// server.get('*', (req, res) => {
-//   res.sendFile(path.resolve('server/public/index.html'))
-// })
+server.get('*', (req, res) => {
+  res.sendFile(path.resolve('server/public/index.html'))
+})
 
 // * means literally anything
 // get('*')

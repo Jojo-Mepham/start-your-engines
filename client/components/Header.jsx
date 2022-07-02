@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import { Heading } from '@chakra-ui/react'
-
 import { getHeader } from '../apiClient'
 
 export default function Header() {
@@ -18,7 +16,7 @@ export default function Header() {
   })
   return (
     <>
-      <Heading>{headerStatement}</Heading>
+      <h1 className="headerfont">{headerStatement}</h1>
     </>
   )
 }

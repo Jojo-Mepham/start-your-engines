@@ -1,6 +1,9 @@
 const path = require('path')
 const express = require('express')
 
+// const knexConfig = require('./db/knexfile')
+// const knex = require('knex')(knexConfig)
+
 const header = require('./routes/header')
 const dragRace = require('./routes/dragRace')
 const dragRaceSeasons = require('./routes/dragRaceSeasons')

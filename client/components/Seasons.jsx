@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom'
 import { getDragRaceSeasons } from '../apiClient'
-import { Grid, GridItem, Button, ButtonGroup } from '@chakra-ui/react'
+import { Grid, GridItem, Button } from '@chakra-ui/react'
 
 export default function Seasons() {
   const [seasons, setSeasons] = useState([])
   const [selected, setSelected] = useState([])
   console.log(selected)
   seasons.sort((a, b) => a.id - b.id)
-  // checked.queen.sort((a, b) => a.id - b.id)
+  selected.sort((a, b) => a.place - b.place)
 
   useEffect(() => {
     getDragRaceSeasons()

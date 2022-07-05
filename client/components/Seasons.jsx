@@ -60,19 +60,19 @@ export default function Seasons() {
           })}
         </GridItem>
         <GridItem pl="2">
-          {selected.map((check) => {
+          {selected?.map((check) => {
             return (
               <ul className="nobull" key={check.id}>
                 <li>
                   <input type="checkbox" name="queen" />
                   <h2 style={{ display: 'inline' }}> {check.name} </h2>
-                  <Button bg="#FF5ED5" color="white" size="xs">
-                    Add
-                  </Button>
                 </li>
               </ul>
             )
           })}
+          <Button bg="#FF5ED5" color="white" size="lg">
+            Add
+          </Button>
         </GridItem>
       </Grid>
     </>
